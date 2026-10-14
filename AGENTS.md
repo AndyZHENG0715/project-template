@@ -4,6 +4,10 @@ This file follows the open [AGENTS.md](https://agents.md/) format and is the sin
 
 These rules reflect the best information available when they were written. If you find evidence that a rule is outdated or a better practice exists, tell the user and propose an update; do not ignore the rule or change it silently.
 
+## Template
+
+Based on [project-template](https://github.com/AndyZHENG0715/project-template), applied on `YYYY-MM-DD`. To update this project to a newer template, compare with that repository and its CHANGELOG.md, keep project-specific rules, and show the user what changes.
+
 ## Files
 
 - `README.md`: what the project is, its long-term goals and how to use it. Written for humans.
@@ -80,7 +84,7 @@ When this template is applied to a new or existing project:
 
 1. Establish the real project root and read existing documents and agent instructions. Keep what is useful.
 2. Rewrite `README.md` for this project: what it is, why it exists, how to use it. Do not invent unknown details; mark them `TODO` for the user. For software, use the [Standard Readme](https://github.com/RichardLitt/standard-readme) sections that apply.
-3. Fill `HANDOFF.md` from current evidence.
+3. Fill `HANDOFF.md` from current evidence, and set the applied date under Template.
 4. Draft project-specific rules: minimal, only what the user stated or the project clearly needs. Adapt proven examples rather than generating from scratch. Show the draft to the user for review.
 5. Non-git projects (study, documents): drop the git-only parts (commit checkpoint, `CHANGELOG.md`, SemVer, Conventional Commits, `.gitattributes`) and use dates in `HANDOFF.md`.
 6. Delete this Bootstrap section, including its markers.
