@@ -5,6 +5,18 @@ The format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/
 
 ## [Unreleased]
 
+### Changed
+
+- Existing projects are merged, not overwritten; README gives a merge prompt and a startup instruction for tools that do not load AGENTS.md.
+- "Checked at" defined as the last inspected commit plus uncommitted changes; HANDOFF gains a Verification section, and agents run relevant checks before finishing.
+- Approval boundaries split into ask-first actions, actions needing no approval, and never; explicit user requests count as approval.
+- Drift rules separate unexplained mismatches from requested behavior changes; specs, tests and acceptance criteria follow requested changes.
+- "Big features" renamed "Larger changes": a plan or spec is required by complexity, not size, in an established format.
+- New Collaboration section for concurrent agents.
+- Template section records the template commit; bootstrap merges, resets CHANGELOG, handles non-git decisions and waits for user approval before deleting itself.
+- Standards marked as defaults; existing conventions take precedence.
+- README no longer claims dotfiles keep secrets out of git; agents check each diff, and `.env.example` holds placeholders only.
+
 ### Added
 
 - Permanent Template section in AGENTS.md linking each project back to this template, so agents can update projects later.

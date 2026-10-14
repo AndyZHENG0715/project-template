@@ -1,73 +1,89 @@
 # Agent Instructions
 
-This file follows the open [AGENTS.md](https://agents.md/) format and is the single entry point for agent rules in this project. Keep it short and specific; every rule should change what an agent does.
+This file follows the open [AGENTS.md](https://agents.md/) format and is the canonical source of agent rules in this project. Keep it short and specific; every rule should change what an agent does. Tools that do not load `AGENTS.md` automatically may use a thin tool-specific file (for example `CLAUDE.md`) that only points here; never duplicate rules into it. A nested `AGENTS.md` may add rules for its directory but must not contradict this file.
 
 These rules reflect the best information available when they were written. If you find evidence that a rule is outdated or a better practice exists, tell the user and propose an update; do not ignore the rule or change it silently.
 
 ## Template
 
-Based on [project-template](https://github.com/AndyZHENG0715/project-template), applied on `YYYY-MM-DD`. To update this project to a newer template, compare with that repository and its CHANGELOG.md, keep project-specific rules, and show the user what changes.
+Based on [project-template](https://github.com/AndyZHENG0715/project-template) at commit `<SHA>`, applied on `YYYY-MM-DD`. To update this project to a newer template, compare that commit with the template's current version and CHANGELOG.md, keep project-specific rules and conventions, and show the user the proposed changes before applying them.
 
 ## Files
 
-- `README.md`: what the project is, its long-term goals and how to use it. Written for humans.
-- `AGENTS.md`: stable rules (this file).
+- `README.md`: what the project is, its long-term goals, how to use it, and lasting product decisions. Written for humans.
+- `AGENTS.md`: stable rules for agents (this file).
 - `HANDOFF.md`: current state only. Overwrite stale content; never turn it into a log. History lives in git and `CHANGELOG.md`.
 
 ## Session start
 
 1. Read `README.md` and `HANDOFF.md`.
-2. Compare the "Checked at" commit in `HANDOFF.md` with `git log` (or the date, in non-git projects). Read any later changes before trusting the handoff.
+2. Compare the "Checked at" revision in `HANDOFF.md` with `git log` and `git status`. Read later commits and any uncommitted changes before trusting the handoff. If that revision is missing from history, say so and rebuild the state from the files. In non-git projects, compare file modification times with the recorded date and time.
 3. If documents and files disagree, follow [Drift](#drift).
 
 ## Before finishing
 
-- When a task changed files or project state, update `HANDOFF.md`: state, recent changes, next steps and "Checked at". Record notable changes under `Unreleased` in `CHANGELOG.md` in the same commit.
+- Run the checks relevant to what changed (tests, build, lint, or opening the output) when they exist.
+- When a task changed files or project state, update `HANDOFF.md`:
+  - state, recent changes, next steps and open questions;
+  - "Checked at": the last commit you inspected before your own changes, plus any uncommitted changes you leave behind;
+  - "Verification": the checks you ran and their results, and what remains unverified.
+- Record notable changes under `Unreleased` in `CHANGELOG.md` together with the change itself.
 - Purely informational replies need no update. Do not announce routine handoff updates.
 
 ## Drift
 
-- Code and files are the default source of truth, but never revert a document or spec to match the code on your own. Ask the user which side is wrong.
+- An unexplained mismatch between documents and files is a question, not a fix: investigate, then ask the user which side is wrong. Code and files are the default source of truth, but never revert a document or spec to match the code on your own.
 - When the user changes a document or spec before the code, write "Spec ahead: <what changed>, code pending" under Next steps in `HANDOFF.md`. Treat such items as code that is behind, not as a wrong document.
-- When a small change alters behavior that a spec describes, update that spec line in the same commit. No proposal is needed.
+- When you make a behavior change the user asked for, update every spec, test or acceptance criterion that describes it in the same change. No separate proposal is needed.
 
-## Big features
+## Larger changes
 
 - Small changes need no spec; `HANDOFF.md` is enough.
-- A big feature (several days, many files, or a new subsystem) uses a spec-driven tool. The first time, research the best current option for this project, explain the choice and wait for approval, then record it under [Standards](#standards). Do not switch tools mid-project without approval.
-- Before starting a new big feature, reconcile existing specs with the code first.
-- When a feature is done, move lasting decisions into this file, or into an ADR under `docs/adr/` for major decisions.
+- Write a plan or spec first when a change involves design decisions, several dependent steps, or is hard to undo. Size alone is not the test: a mechanical rename across many files needs none, a subtle security change in one file may.
+- Prefer an established spec format or spec-driven tool over inventing one. The first time one is needed, research the current options, propose one to the user, and record the choice under [Standards](#standards) after approval. Do not switch formats mid-project without approval.
+- Before starting a new planned change, reconcile existing specs with the code.
+- When the work is done, move lasting product decisions into `README.md` or project docs (an ADR under `docs/adr/` for major ones), and lasting agent rules into this file.
+
+## Collaboration
+
+- Several agents may work on this project. Fetch and inspect remote changes before editing, and re-read `HANDOFF.md` just before writing it.
+- Preserve changes you did not make, including uncommitted ones. Update only the parts of `HANDOFF.md` your work affects; merge rather than replace.
+- If another agent is changing the same files, coordinate through the user or separate branches; reconcile before publishing.
 
 ## Boundaries
 
 Always:
 
-- Follow the standards below when they apply. If one does not fit, say so instead of inventing an ad-hoc format.
+- Follow the standards below where they fit the project. Established project conventions take precedence over template defaults; if a standard does not fit, say so instead of inventing an ad-hoc format.
 - Use ISO 8601 dates (`YYYY-MM-DD`), with the timezone when it matters.
-- Fetch and inspect remote changes before editing when another agent may be pushing.
+- Before committing, check the actual diff for secrets and personal data. Ignore files are a convenience, not a guarantee.
 
-Ask first:
+Ask first (an explicit request from the user counts as approval):
 
-- Adding a dependency, deleting files, changing the spec tool or a pinned standard version, tagging a release, and anything external or hard to undo.
+- Adding a dependency; deleting tracked files the task did not ask to delete; changing the spec format or a pinned standard version; tagging a release.
+- Actions visible outside this project or hard to undo: deploying, publishing, sending messages, spending money, changing shared settings.
+- Committing or pushing, unless the project rules below say how changes are delivered.
+
+No approval needed: reading, searching the web, fetching from remotes, and edits within the requested task.
 
 Never:
 
-- Commit secrets, credentials, `.env` files or personal data such as ID numbers and phone numbers.
+- Commit secrets, credentials, `.env` files or personal data such as ID numbers and phone numbers. `.env.example` holds placeholder values only.
 - Rewrite published git history.
 - Revert a document or spec only because the code differs.
 
 ## Standards
 
-Versions are pinned so upgrades are deliberate. Re-check the official page only when working in that area and "Last checked" is more than 3 months old; then update the date and tell the user what changed. Never switch versions silently.
+Defaults, applied where they fit. Versions are pinned so upgrades are deliberate. Re-check an official page only when working in that area and "Last checked" is more than 3 months old; then update the date and tell the user what changed. Never switch versions silently.
 
 | Area | Standard | Version | Last checked |
 | --- | --- | --- | --- |
 | Commit messages and PR titles | [Conventional Commits](https://www.conventionalcommits.org/) | 1.0.0 | 2026-10-14 |
-| Version numbers | [Semantic Versioning](https://semver.org/) | 2.0.0 | 2026-10-14 |
+| Version numbers, if the project releases versions | [Semantic Versioning](https://semver.org/) | 2.0.0 | 2026-10-14 |
 | Changelog | [Keep a Changelog](https://keepachangelog.com/) | 1.1.0 | 2026-10-14 |
-| Branching | [GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow) | n/a | 2026-10-14 |
-| Config and secrets | [12-Factor III](https://12factor.net/config): environment variables, commit `.env.example` only | n/a | 2026-10-14 |
-| Spec-driven tool | Chosen at the first big feature | | |
+| Branching | [GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow) | unversioned | 2026-10-14 |
+| Config and secrets, for software with deployable config | [12-Factor III](https://12factor.net/config) | unversioned | 2026-10-14 |
+| Spec format or tool | Chosen when first needed | | |
 
 Commits made by an AI agent carry a `Co-authored-by` trailer naming the agent when the tool supports it.
 
@@ -80,12 +96,14 @@ Commits made by an AI agent carry a `Co-authored-by` trailer naming the agent wh
 
 Template last reviewed: 2026-10-14. If that is more than 6 months ago, tell the user the template is due for a review before continuing.
 
-When this template is applied to a new or existing project:
+When this template is applied to a project:
 
-1. Establish the real project root and read existing documents and agent instructions. Keep what is useful.
-2. Rewrite `README.md` for this project: what it is, why it exists, how to use it. Do not invent unknown details; mark them `TODO` for the user. For software, use the [Standard Readme](https://github.com/RichardLitt/standard-readme) sections that apply.
-3. Fill `HANDOFF.md` from current evidence, and set the applied date under Template.
-4. Draft project-specific rules: minimal, only what the user stated or the project clearly needs. Adapt proven examples rather than generating from scratch. Show the draft to the user for review.
-5. Non-git projects (study, documents): drop the git-only parts (commit checkpoint, `CHANGELOG.md`, SemVer, Conventional Commits, `.gitattributes`) and use dates in `HANDOFF.md`.
-6. Delete this Bootstrap section, including its markers.
+1. Establish the real project root. Read existing documents, agent instructions (including nested and tool-specific ones) and formatter settings before changing anything.
+2. Existing project: merge, never overwrite. Bring template sections into the existing `AGENTS.md`, `README.md` and `HANDOFF.md`, keep their operational content, and show the user what moved or changed. Keep existing conventions (formatter, indentation, commit style) and adjust the template defaults to match.
+3. `README.md`: for a new project, write what it is, why it exists and how to use it. Mark unknown details `TODO` for the user rather than inventing them. For software, use the [Standard Readme](https://github.com/RichardLitt/standard-readme) sections that apply.
+4. `HANDOFF.md`: fill from current evidence. Under Template, record the template commit and today's date.
+5. `CHANGELOG.md`: reset it to an empty `Unreleased` section for a new project; create it for an existing git project that lacks one.
+6. Non-git projects (study, documents): drop the git-only parts (commit checkpoint, `CHANGELOG.md`, SemVer, Conventional Commits, dotfiles). Use date and time in "Checked at", and keep a short "Decisions" list in `README.md` in place of git history.
+7. Draft project-specific rules: minimal, only what the user stated or the project clearly needs. Adapt proven examples rather than generating from scratch.
+8. Show the user the draft rules and any merged changes. After the user approves, delete this Bootstrap section, including its markers.
 <!-- BOOTSTRAP END -->

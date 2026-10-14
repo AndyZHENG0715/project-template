@@ -2,7 +2,7 @@
 
 Current state only. Overwrite stale content instead of appending; history lives in git and CHANGELOG.md.
 
-Checked at: `<commit SHA, or YYYY-MM-DD for non-git projects>` on YYYY-MM-DD
+Checked at: `<last commit inspected before your changes>` on YYYY-MM-DD (non-git: date and time). Uncommitted changes left behind: none
 
 ## Goals
 
@@ -13,6 +13,12 @@ Current goals, highest priority first. The long-term vision lives in README.md.
 ## State
 
 What works, what is in progress, where things are.
+
+## Verification
+
+Checks run for the latest changes and their results. List anything not verified.
+
+- 
 
 ## Recent changes
 
