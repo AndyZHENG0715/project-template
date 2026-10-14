@@ -7,6 +7,11 @@ The format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/
 
 ### Changed
 
+- Nested AGENTS.md files follow the format's "closest file wins" rule without extra conditions.
+- Prompt-injection rule narrowed to content that tries to change the task, permissions or rules; documented project commands stay usable.
+- Bootstrap records the template commit in AGENTS.md's Template section, not HANDOFF.md.
+- Fetching before editing applies only when a remote is configured.
+- Non-git bootstrap keeps `.editorconfig`; only Git-specific dotfiles are dropped.
 - Existing projects are merged, not overwritten; README gives a merge prompt and a startup instruction for tools that do not load AGENTS.md.
 - "Checked at" defined as the last inspected commit plus uncommitted changes; HANDOFF gains a Verification section, and agents run relevant checks before finishing.
 - Approval boundaries split into ask-first actions, actions needing no approval, and never; explicit user requests count as approval.
@@ -17,7 +22,6 @@ The format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/
 - Standards marked as defaults; existing conventions take precedence.
 - README no longer claims dotfiles keep secrets out of git; agents check each diff, and `.env.example` holds placeholders only.
 
-- Nested AGENTS.md files may override root rules for their directory, following the AGENTS.md "closest file wins" rule, except the Never rules.
 - Agents ask about parallel work only when they see signs of it within the last hour.
 - Rewriting published history moved from Never to Ask first, with a backup and `--force-with-lease`.
 - Standards table gains a "Re-check every" column: 12 months for stable specs, 3 months for agent tooling.
