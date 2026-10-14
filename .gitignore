@@ -1,0 +1,11 @@
+# Secrets: commit .env.example only
+.env
+.env.*
+!.env.example
+
+# Local scratch (private files, drafts)
+tmp/
+
+# OS files
+.DS_Store
+Thumbs.db
