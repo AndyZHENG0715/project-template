@@ -2,6 +2,8 @@
 
 This file follows the open [AGENTS.md](https://agents.md/) format and is the single entry point for agent rules in this project. Keep it short and specific; every rule should change what an agent does.
 
+These rules reflect the best information available when they were written. If you find evidence that a rule is outdated or a better practice exists, tell the user and propose an update; do not ignore the rule or change it silently.
+
 ## Files
 
 - `README.md`: what the project is, its long-term goals and how to use it. Written for humans.

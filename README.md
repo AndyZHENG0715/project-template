@@ -27,6 +27,8 @@ Non-git project (study notes, documents): copy `AGENTS.md` and `HANDOFF.md` only
 
 ## Design choices
 
+These are choices made on 2026-10-14 from the information available then, not settled truths. AI tooling changes fast: if newer evidence suggests a better option, propose the change to the user instead of following these blindly. Each full review re-examines this list.
+
 - **No separate TODO file.** "Next steps" in `HANDOFF.md` is the task list.
 - **Handoff is overwritten, not appended.** History belongs in git and `CHANGELOG.md`, so the handoff stays short and current.
 - **No spec tool by default.** Small changes need no spec. A spec-driven tool is chosen at the first big feature, from what is best at that time.
@@ -36,4 +38,4 @@ Non-git project (study notes, documents): copy `AGENTS.md` and `HANDOFF.md` only
 
 ## Maintaining this template
 
-Review the whole template when "Last full review" is more than 6 months old. Agents applying the bootstrap remind the user when it is due. Record changes in `CHANGELOG.md`.
+Review the whole template, including every design choice above, when "Last full review" is more than 6 months old. Agents applying the bootstrap remind the user when it is due. Record changes in `CHANGELOG.md`.
