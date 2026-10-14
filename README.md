@@ -38,6 +38,7 @@ These choices were made on 2026-10-14 from the information available then. AI to
 - **Pinned standard versions with a "last checked" date.** Agents re-check a standard only when they work in that area: every 12 months for stable specs, every 3 months for fast-moving agent tooling. They report changes instead of switching silently.
 - **Non-git projects keep a decision log** in `README.md` instead of ADRs.
 - **Boundaries as Always / Ask first / Never**, following GitHub's [analysis of 2,500+ agents.md files](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/).
+- **Rules for any model.** `AGENTS.md` states outcomes and boundaries, not step-by-step process, so stronger models are not slowed down. Procedures that need steps (deploying, releasing) go in separate docs that `AGENTS.md` points to when relevant, so agents read them only when needed.
 - **Minimal, reviewed rules.** Research on AGENTS.md files ([Gloaguen et al., 2026](https://arxiv.org/abs/2602.11988)) found that generated context files add cost without helping, so the bootstrap drafts few rules for the user to review.
 
 ## Maintaining this template

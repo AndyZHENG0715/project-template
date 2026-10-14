@@ -28,6 +28,7 @@ Based on [project-template](https://github.com/AndyZHENG0715/project-template) a
   - "Checked at": the last commit you inspected before your own changes, plus any uncommitted changes you leave behind;
   - "Verification": the checks you ran and their results, and what remains unverified.
 - Record notable changes under `Unreleased` in `CHANGELOG.md` together with the change itself.
+- A task is done when the change works and has been checked, not at the first draft. Stop early only for an Ask first item or a question only the user can answer.
 - Purely informational replies need no update. Do not announce routine handoff updates.
 
 ## Drift
@@ -68,7 +69,7 @@ Ask first (an explicit request from the user counts as approval):
 - Destructive local commands: deleting folders, `git reset --hard`, dropping or overwriting databases.
 - Rewriting published git history (rebase, amend or force push on a shared branch). First create a backup branch or tag, push with `--force-with-lease`, and tell the user who must re-sync their copies.
 
-No approval needed: reading, searching the web, fetching from remotes, and edits within the requested task.
+No approval needed: reading, searching the web, fetching from remotes, edits within the requested task, and running local tests, builds and linters.
 
 Never:
 
