@@ -43,3 +43,7 @@ These choices were made on 2026-10-14 from the information available then. AI to
 ## Maintaining this template
 
 Review the whole template, including every design choice above, when "Last full review" is more than 6 months old. Agents applying the bootstrap remind the user when it is due. Record changes in `CHANGELOG.md`.
+
+## License
+
+[MIT](LICENSE). The bootstrap does not copy this license into your project; choose your own.
