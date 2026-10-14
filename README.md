@@ -46,4 +46,4 @@ Review the whole template, including every design choice above, when "Last full 
 
 ## License
 
-[MIT](LICENSE). The bootstrap does not copy this license into your project; choose your own.
+[MIT](LICENSE). "Use this template" also copies this file into new projects; replace it with the license your project needs.
