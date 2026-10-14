@@ -7,6 +7,7 @@ The format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/
 
 ### Changed
 
+- Full template review is also due when switching to a new generation of main model.
 - Running local tests, builds and linters needs no approval.
 - Tasks are done when the change works and has been checked, not at the first draft.
 - README explains that rules state outcomes and boundaries, with step-by-step procedures in separate docs read when needed.
