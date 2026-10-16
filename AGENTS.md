@@ -44,7 +44,7 @@ Based on [project-template](https://github.com/AndyZHENG0715/project-template) a
 - Prefer an established spec format or spec-driven tool over inventing one. The first time one is needed, research the current options, propose one to the user, and record the choice under [Standards](#standards) after approval. Do not switch formats mid-project without approval.
 - Before starting a new planned change, reconcile existing specs with the code.
 - When the work is done, move lasting product decisions into `README.md` or project docs (an ADR under `docs/adr/` for major ones), and lasting agent rules into this file.
-- When writing step-by-step docs (deploy, release, coding guides), start with the goal and what done means. Mark steps that carry facts or safety as required: exact commands, environment values, credentials, irreversible actions. Present the rest as defaults that may be skipped or adapted with a one-line reason.
+- When writing step-by-step docs (deploy, release, coding guides), start with the goal, what done means, and why non-obvious steps matter. State steps that carry facts or safety plainly as required: exact commands, environment values, credentials, irreversible actions. Write any other step as a condition that says when it applies (for example, "stop for review before changing a public interface or deleting data"), not as a rule for every change. Leave out steps a capable agent does unprompted, such as running tests.
 
 ## Collaboration
 
