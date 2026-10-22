@@ -8,7 +8,7 @@ The format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/
 ### Added
 
 - `AGENTS.md` in the open AGENTS.md format, with rules for session start, finishing a task, drift between documents and files, larger changes, and concurrent agents.
-- Boundaries as Always / Ask first / Never: atomic commits, diff checks for secrets, approval for dependencies, destructive commands, outward-facing actions and history rewrites, and a prompt-injection boundary that keeps documented project commands usable.
+- Boundaries as Always / Ask first / Never: atomic commits, diff checks for secrets, approval for dependencies, destructive commands, outward-facing actions, history rewrites and checks with effects beyond the local machine, reporting of blockers instead of claiming completion, and a prompt-injection boundary that keeps documented project commands usable.
 - Pinned standards (Conventional Commits, SemVer, Keep a Changelog, GitHub flow, 12-Factor III, AGENTS.md) with "Last checked" and "Re-check every" columns; existing project conventions take precedence.
 - Agents add a `Co-authored-by` trailer when their tool does not.
 - Rule for writing step-by-step docs: goal and reasons first, fact and safety steps stated as required, other steps written as conditions for when they apply.

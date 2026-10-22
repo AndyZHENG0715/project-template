@@ -29,7 +29,7 @@ Based on [project-template](https://github.com/AndyZHENG0715/project-template) a
   - "Verification": the checks you ran and their results, and what remains unverified.
 - Commit `HANDOFF.md` with the last change it describes, or after it, so its commit marks what the handoff covers.
 - Record notable changes under `Unreleased` in `CHANGELOG.md` together with the change itself.
-- A task is done when the change works and has been checked, not at the first draft. Stop early only for an Ask first item or a question only the user can answer.
+- A task is done when the change works and has been checked, not at the first draft. Stop early only for an Ask first item, a question only the user can answer, or a blocker you cannot resolve (missing access, a service that is down). Then report what is done, what is unverified and what blocks it; do not call the task done.
 - Purely informational replies need no update. Do not announce routine handoff updates.
 
 ## Drift
@@ -71,7 +71,7 @@ Ask first (an explicit request from the user counts as approval):
 - Destructive local commands: deleting folders, `git reset --hard`, dropping or overwriting databases.
 - Rewriting published git history (rebase, amend or force push on a shared branch). First create a backup branch or tag, push with `--force-with-lease`, and tell the user who must re-sync their copies.
 
-No approval needed: reading, searching the web, fetching from remotes, edits within the requested task, and running local tests, builds and linters.
+No approval needed: reading, searching the web, fetching from remotes, edits within the requested task, and running local tests, builds and linters. If a check has effects beyond this machine (paid services, shared data, publishing), the Ask first items still apply.
 
 Never:
 
@@ -85,8 +85,8 @@ Defaults, applied where they fit. Versions are pinned so upgrades are deliberate
 
 | Area | Standard | Version | Last checked | Re-check every |
 | --- | --- | --- | --- | --- |
-| Commit messages and PR titles | [Conventional Commits](https://www.conventionalcommits.org/) | 1.0.0 | 2026-10-14 | 12 months |
-| Version numbers, if the project releases versions | [Semantic Versioning](https://semver.org/) | 2.0.0 | 2026-10-14 | 12 months |
+| Commit messages (PR titles too, as a project choice) | [Conventional Commits](https://www.conventionalcommits.org/) | 1.0.0 | 2026-10-14 | 12 months |
+| Version numbers, if the project releases versions; declare the public API first | [Semantic Versioning](https://semver.org/) | 2.0.0 | 2026-10-14 | 12 months |
 | Changelog | [Keep a Changelog](https://keepachangelog.com/) | 1.1.0 | 2026-10-14 | 12 months |
 | Branching | [GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow) | unversioned | 2026-10-14 | 12 months |
 | Config and secrets, for software with deployable config | [12-Factor III](https://12factor.net/config) | unversioned | 2026-10-14 | 12 months |
