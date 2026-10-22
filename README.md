@@ -1,8 +1,8 @@
 # project-template
 
-A small, tool-agnostic starting point for projects worked on with AI agents, in any tool. It keeps three files in sync so any agent, in any tool, can pick up where the last one stopped.
+A small, tool-agnostic starting point for projects worked on with AI agents. It keeps three files in sync so any agent, in any tool, can pick up where the last one stopped.
 
-Last full review: 2026-10-14
+Last full review: 2026-10-22
 
 ## What is inside
 
@@ -29,7 +29,7 @@ Keep your tool's sandbox and approval settings on. Written rules guide an agent;
 
 ## Design choices
 
-These choices were made on 2026-10-14 from the information available then. AI tooling changes fast, so each full review re-examines this list.
+These choices were made on 2026-10-14 and last reviewed on 2026-10-22, from the information available then. AI tooling changes fast, so each full review re-examines this list.
 
 - **No separate TODO file.** "Next steps" in `HANDOFF.md` is the task list.
 - **Handoff is overwritten, not appended.** History belongs in git and `CHANGELOG.md`, so the handoff stays short and current.
@@ -37,9 +37,9 @@ These choices were made on 2026-10-14 from the information available then. AI to
 - **Standards are defaults.** Existing project conventions win over template defaults.
 - **Pinned standard versions with a "last checked" date.** Agents re-check a standard only when they work in that area: every 12 months for stable specs, every 3 months for fast-moving agent tooling. They report changes instead of switching silently.
 - **Non-git projects keep a decision log** in `README.md` instead of ADRs.
-- **Boundaries as Always / Ask first / Never**, following GitHub's [analysis of 2,500+ agents.md files](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/).
+- **Boundaries as Always / Ask first / Never**, following GitHub's [analysis of 2,500+ agents.md files](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/) (written for Copilot custom agents; the advice carries over).
 - **Rules for any model.** `AGENTS.md` states outcomes and boundaries, not step-by-step process, so stronger models are not slowed down. Procedures that need steps (deploying, releasing) go in separate docs that `AGENTS.md` points to when relevant, so agents read them only when needed.
-- **Minimal, reviewed rules.** Research on AGENTS.md files ([Gloaguen et al., 2026](https://arxiv.org/abs/2602.11988)) found that generated context files add cost without helping, so the bootstrap drafts few rules for the user to review.
+- **Minimal, reviewed rules.** Research on AGENTS.md files ([Gloaguen et al., 2026](https://arxiv.org/abs/2602.11988)) found that context files, generated or hand-written, generally did not improve task success and raised inference cost by over 20%, while being useful for non-standard practices. So the bootstrap drafts few, project-specific rules for the user to review.
 
 ## Maintaining this template
 

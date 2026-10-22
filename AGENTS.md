@@ -102,7 +102,7 @@ Agents keep the commit attribution their tool adds and add none of their own. A 
 <!-- BOOTSTRAP START -->
 ## Bootstrap (one-time)
 
-Template last reviewed: 2026-10-14. If that is more than 6 months ago, tell the user the template is due for a review before continuing.
+Template last reviewed: 2026-10-22. If that is more than 6 months ago, tell the user the template is due for a review before continuing.
 
 When this template is applied to a project:
 
