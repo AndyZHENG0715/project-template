@@ -34,22 +34,22 @@ Based on [project-template](https://github.com/AndyZHENG0715/project-template) a
 
 ## Drift
 
-- An unexplained mismatch between documents and files is a question, not a fix: investigate, then ask the user which side is wrong. Code and files are the default source of truth, but never revert a document or spec to match the code on your own.
+- An unexplained mismatch between documents and files is a question, not a fix: investigate first, and if it is still unexplained, ask the user which side is wrong. Code and files are the default source of truth for what the project does now, not for what it should do; never revert a document or spec to match the code on your own.
 - When the user changes a document or spec before the code, write "Spec ahead: <what changed>, code pending" under Next steps in `HANDOFF.md`. Treat such items as code that is behind, not as a wrong document.
 - When you make a behavior change the user asked for, update every spec, test or acceptance criterion that describes it in the same change. No separate proposal is needed.
 
 ## Larger changes
 
 - Small changes need no spec; `HANDOFF.md` is enough.
-- Write a plan or spec first when a change involves design decisions, several dependent steps, or is hard to undo. Size alone is not the test: a mechanical rename across many files needs none, a subtle security change in one file may.
-- Prefer an established spec format or spec-driven tool over inventing one. The first time one is needed, research the current options, propose one to the user, and record the choice under [Standards](#standards) after approval. Do not switch formats mid-project without approval.
-- Before starting a new planned change, reconcile existing specs with the code.
+- Write a plan or spec first when a change involves design choices the user has not made, several dependent steps, or is hard to undo. Size alone is not the test: a mechanical rename across many files needs none, a subtle security change in one file may.
+- A plan uses the project's existing format, or plain Markdown. Adopt a spec format or spec-driven tool only when the project has recurring spec work across sessions: then research the current options, propose one to the user, and record the choice under [Standards](#standards) after approval. Do not switch formats mid-project without approval.
+- Before starting a planned change, reconcile the specs it touches with the code. Note unrelated mismatches in `HANDOFF.md` instead of widening the task.
 - When the work is done, move lasting product decisions into `README.md` or project docs (an ADR under `docs/adr/` for major ones), and lasting agent rules into this file.
-- When writing step-by-step docs (deploy, release, coding guides), start with the goal, what done means, and why non-obvious steps matter. State steps that carry facts or safety plainly as required: exact commands, environment values, credentials, irreversible actions. Write any other step as a condition that says when it applies (for example, "stop for review before changing a public interface or deleting data"), not as a rule for every change. Leave out steps a capable agent does unprompted, such as running tests.
+- When writing step-by-step docs (deploy, release, coding guides), start with the goal, what done means, and why non-obvious steps matter. State steps that carry facts or safety plainly as required: exact commands, environment values, credentials, irreversible actions. Write any other step as a condition that says when it applies (for example, "stop for review before changing a public interface or deleting data"), not as a rule for every change. Leave out generic advice a capable agent follows unprompted; checks that gate completion or a release are stated as required.
 
 ## Collaboration
 
-- If a remote is configured, fetch and inspect remote changes before editing, and re-read `HANDOFF.md` just before writing it.
+- If a remote is configured and reachable, fetch and inspect remote changes before editing, and re-read `HANDOFF.md` just before writing it.
 - Look for signs of parallel work: commits by another agent or person within the last hour, uncommitted changes you did not make, or an active branch or pull request touching the same files. Only if you see one, ask the user whether someone else is working now. If not, work as the only agent.
 - Preserve changes you did not make, including uncommitted ones. Update only the parts of `HANDOFF.md` your work affects; merge rather than replace.
 - If another agent is changing the same files, coordinate through the user or separate branches; reconcile before publishing.
@@ -91,7 +91,7 @@ Defaults, applied where they fit. Versions are pinned so upgrades are deliberate
 | Branching | [GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow) | unversioned | 2026-10-14 | 12 months |
 | Config and secrets, for software with deployable config | [12-Factor III](https://12factor.net/config) | unversioned | 2026-10-14 | 12 months |
 | Agent instructions | [AGENTS.md](https://agents.md/) | unversioned | 2026-10-14 | 3 months |
-| Spec format or tool | Chosen when first needed | | | 3 months |
+| Spec format or tool | Chosen when recurring spec work starts | | | 3 months |
 
 Commits made by an AI agent end with a `Co-authored-by` trailer naming the agent. If the tool does not add one automatically, add it to the commit message yourself.
 

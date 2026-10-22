@@ -33,7 +33,7 @@ These choices were made on 2026-10-14 from the information available then. AI to
 
 - **No separate TODO file.** "Next steps" in `HANDOFF.md` is the task list.
 - **Handoff is overwritten, not appended.** History belongs in git and `CHANGELOG.md`, so the handoff stays short and current.
-- **No spec tool by default.** Small changes need no spec. A plan or spec is required only when a change involves design decisions, dependent steps or is hard to undo, and its format is chosen from what is best at that time.
+- **No spec tool by default.** Small changes need no spec. A plan is required only when a change involves open design choices, dependent steps or is hard to undo, and plain Markdown is enough. A spec tool is chosen from what is best at that time, once a project has recurring spec work.
 - **Standards are defaults.** Existing project conventions win over template defaults.
 - **Pinned standard versions with a "last checked" date.** Agents re-check a standard only when they work in that area: every 12 months for stable specs, every 3 months for fast-moving agent tooling. They report changes instead of switching silently.
 - **Non-git projects keep a decision log** in `README.md` instead of ADRs.
