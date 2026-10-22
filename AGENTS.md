@@ -93,7 +93,7 @@ Defaults, applied where they fit. Versions are pinned so upgrades are deliberate
 | Agent instructions | [AGENTS.md](https://agents.md/) | unversioned | 2026-10-14 | 3 months |
 | Spec format or tool | Chosen when recurring spec work starts | | | 3 months |
 
-Commits made by an AI agent end with a `Co-authored-by` trailer naming the agent. If the tool does not add one automatically, add it to the commit message yourself.
+Agents keep the commit attribution their tool adds and add none of their own. A branch an agent creates is named `<agent>/<topic>` (for example `claude/fix-footer`) unless the tool names it. Use a separate worktree only when several agents work on one machine at the same time.
 
 ## Project-specific rules
 
