@@ -13,7 +13,7 @@ The format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/
 - Agents add a `Co-authored-by` trailer when their tool does not.
 - Rule for writing step-by-step docs: goal and reasons first, fact and safety steps stated as required, other steps written as conditions for when they apply.
 - Template section linking each project back to the template commit it was applied from.
-- One-time bootstrap section that merges into existing projects, handles non-git projects with a decision log, and waits for user approval before deleting itself.
+- One-time bootstrap section that merges rules into existing projects without copying the template's own text, records setup, run and check commands for software, handles non-git projects with a decision log, and waits for user approval before deleting itself.
 - `HANDOFF.md` skeleton: goals, state, verification, recent changes, next steps, open questions, and an "Updated" time. The last commit that changed it marks what it covers, so no commit hash is written by hand.
 - `README.md` with a copyable bootstrap prompt, design choices, and a full review every 6 months or when switching to a new generation of main model.
 - `.gitattributes` (LF), `.editorconfig` and `.gitignore`.

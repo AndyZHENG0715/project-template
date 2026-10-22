@@ -1,6 +1,6 @@
 # Handoff
 
-Current state only. Overwrite stale content instead of appending; history lives in git and CHANGELOG.md.
+Current state only. Overwrite stale content instead of appending; history lives in git and CHANGELOG.md (non-git projects: the decision log in README.md).
 
 Updated: YYYY-MM-DD HH:MM (timezone). Uncommitted changes left behind: none
 

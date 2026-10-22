@@ -12,7 +12,7 @@ Based on [project-template](https://github.com/AndyZHENG0715/project-template) a
 
 - `README.md`: what the project is, its long-term goals, how to use it, and lasting product decisions. Written for humans.
 - `AGENTS.md`: stable rules for agents (this file).
-- `HANDOFF.md`: current state only. Overwrite stale content; never turn it into a log. History lives in git and `CHANGELOG.md`.
+- `HANDOFF.md`: current state only. Overwrite stale content; never turn it into a log. History lives in git and `CHANGELOG.md` (non-git projects: the decision log in `README.md`).
 
 ## Session start
 
@@ -107,11 +107,11 @@ Template last reviewed: 2026-10-14. If that is more than 6 months ago, tell the 
 When this template is applied to a project:
 
 1. Establish the real project root. Read existing documents, agent instructions (including nested and tool-specific ones) and formatter settings before changing anything.
-2. Existing project: merge, never overwrite. Bring template sections into the existing `AGENTS.md`, `README.md` and `HANDOFF.md`, keep their operational content, and show the user what moved or changed. Keep existing conventions (formatter, indentation, commit style) and adjust the template defaults to match.
-3. `README.md`: for a new project, write what it is, why it exists and how to use it. Mark unknown details `TODO` for the user rather than inventing them. For software, use the [Standard Readme](https://github.com/RichardLitt/standard-readme) sections that apply.
+2. Existing project: merge, never overwrite. Merge the applicable rules into the existing `AGENTS.md`. In `README.md` and `HANDOFF.md`, add this project's facts and current state, not the template's own descriptive text. Keep existing content, and show the user what moved or changed. Keep existing conventions (formatter, indentation, commit style) and adjust the template defaults to match.
+3. `README.md`: for a new project, write what it is, why it exists and how to use it. For software, include the known setup, run and check commands, or state that no checks exist yet. Mark unknown details `TODO` for the user rather than inventing commands or facts. Use the [Standard Readme](https://github.com/RichardLitt/standard-readme) sections that apply.
 4. `HANDOFF.md`: fill from current evidence. In this file's Template section, replace `<SHA>` and `YYYY-MM-DD` with the template commit and today's date.
 5. `CHANGELOG.md`: reset it to an empty `Unreleased` section for a new project; create it for an existing git project that lacks one.
-6. Non-git projects (study, documents): drop the git-only parts (commit checkpoint, `CHANGELOG.md`, SemVer, Conventional Commits, `.gitattributes`, `.gitignore`); keep `.editorconfig` and existing project configuration). Use date and time in "Checked at", and keep a "Decision log" table (`| Date | Decision | Why |`) in `README.md` in place of git history and ADRs.
+6. Non-git projects (study, documents): leave out the template's git-only parts (commit checkpoint, `CHANGELOG.md`, SemVer, Conventional Commits, `.gitattributes`, `.gitignore`); keep `.editorconfig` and every existing project file. Use date and time in "Updated", and keep a "Decision log" table (`| Date | Decision | Why |`) in `README.md` in place of git history and ADRs.
 7. Draft project-specific rules: minimal, only what the user stated or the project clearly needs. Adapt proven examples rather than generating from scratch.
 8. Show the user the draft rules and any merged changes. After the user approves, delete this Bootstrap section, including its markers.
 <!-- BOOTSTRAP END -->
