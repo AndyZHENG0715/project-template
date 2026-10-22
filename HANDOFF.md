@@ -2,7 +2,7 @@
 
 Current state only. Overwrite stale content instead of appending; history lives in git and CHANGELOG.md.
 
-Checked at: `<last commit inspected before your changes>` on YYYY-MM-DD (non-git: date and time). Uncommitted changes left behind: none
+Updated: YYYY-MM-DD HH:MM (timezone). Uncommitted changes left behind: none
 
 ## Goals
 

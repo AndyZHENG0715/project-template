@@ -17,7 +17,7 @@ Based on [project-template](https://github.com/AndyZHENG0715/project-template) a
 ## Session start
 
 1. Read `README.md` and `HANDOFF.md`.
-2. Compare the "Checked at" revision in `HANDOFF.md` with `git log` and `git status`. Read later commits and any uncommitted changes before trusting the handoff. If that revision is missing from history, say so and rebuild the state from the files. In non-git projects, compare file modification times with the recorded date and time.
+2. Before trusting the handoff, read the commits made after the last commit that changed `HANDOFF.md`, and any uncommitted changes (`git status`). In non-git projects, compare file modification times with the "Updated" time.
 3. If documents and files disagree, follow [Drift](#drift).
 
 ## Before finishing
@@ -25,8 +25,9 @@ Based on [project-template](https://github.com/AndyZHENG0715/project-template) a
 - Run the checks relevant to what changed (tests, build, lint, or opening the output) when they exist.
 - When a task changed files or project state, update `HANDOFF.md`:
   - state, recent changes, next steps and open questions;
-  - "Checked at": the last commit you inspected before your own changes, plus any uncommitted changes you leave behind;
+  - "Updated": date and time, plus any uncommitted changes you leave behind;
   - "Verification": the checks you ran and their results, and what remains unverified.
+- Commit `HANDOFF.md` with the last change it describes, or after it, so its commit marks what the handoff covers.
 - Record notable changes under `Unreleased` in `CHANGELOG.md` together with the change itself.
 - A task is done when the change works and has been checked, not at the first draft. Stop early only for an Ask first item or a question only the user can answer.
 - Purely informational replies need no update. Do not announce routine handoff updates.
