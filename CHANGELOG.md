@@ -7,6 +7,7 @@ The format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/
 
 ### Added
 
+- Development environment rules: mise manages Node.js, Bun and uv; project-level Node pins; uv-managed, pinned Python invoked through `uv run`; WSL-native Git; portable paths and protection of system Python.
 - `AGENTS.md` in the open AGENTS.md format, with rules for session start, finishing a task, drift between documents and files (ask only when investigation leaves it unexplained), larger changes (plans in plain Markdown; a spec tool only for recurring spec work; reconcile only the specs a change touches), and concurrent agents.
 - Boundaries as Always / Ask first / Never: atomic commits, diff checks for secrets, approval for dependencies, destructive commands, outward-facing actions, history rewrites and checks with effects beyond the local machine, reporting of blockers instead of claiming completion, and a prompt-injection boundary that keeps documented project commands usable.
 - Pinned standards (Conventional Commits, SemVer, Keep a Changelog, GitHub flow, 12-Factor III, AGENTS.md) with "Last checked" and "Re-check every" columns; existing project conventions take precedence.
