@@ -47,6 +47,14 @@ Based on [project-template](https://github.com/AndyZHENG0715/project-template) a
 - When the work is done, move lasting product decisions into `README.md` or project docs (an ADR under `docs/adr/` for major ones), and lasting agent rules into this file.
 - When writing step-by-step docs (deploy, release, coding guides), start with the goal, what done means, and why non-obvious steps matter. State steps that carry facts or safety plainly as required: exact commands, environment values, credentials, irreversible actions. Write any other step as a condition that says when it applies (for example, "stop for review before changing a public interface or deleting data"), not as a rule for every change. Leave out generic advice a capable agent follows unprompted; checks that gate completion or a release are stated as required.
 
+## Development environment
+
+- For projects using Node.js, Bun or Python, mise manages Node.js, Bun and uv; uv manages project Python runtimes and environments. Do not install Python through mise or change the operating system's Python.
+- Pin the project's Node.js version in a project-level `mise.toml`. Choose a version compatible with the project and its CI/deployment environment; do not rely on global mise settings or copy the locally installed version without checking compatibility.
+- For projects that use Python, pin a compatible version with `uv python pin <version>` and track the resulting `.python-version`. Run Python scripts and tools through `uv run` (for example `uv run python scripts/example.py`). Do not invoke bare `python3`, `python` or `pip` for project work. In WSL, `python3` may be Ubuntu's system Python, outside the project environment; leave it unchanged.
+- For repositories in WSL, use Git installed inside WSL. Do not operate on them with Windows Git, including through a Windows editor's local Git integration.
+- Keep shared scripts, configuration and instructions portable: do not hard-code Windows drive letters, `/mnt/c` paths or a particular machine's home directory. Resolve paths relative to the project, through standard environment variables or through documented configuration.
+
 ## Collaboration
 
 - If a remote is configured and reachable, fetch and inspect remote changes before editing, and re-read `HANDOFF.md` just before writing it.
